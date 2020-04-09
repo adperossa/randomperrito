@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/randomperrito/static/css/main.d0061d4e.chunk.css",
+    "main.js": "/randomperrito/static/js/main.c333b61b.chunk.js",
+    "main.js.map": "/randomperrito/static/js/main.c333b61b.chunk.js.map",
+    "runtime-main.js": "/randomperrito/static/js/runtime-main.a2f394bd.js",
+    "runtime-main.js.map": "/randomperrito/static/js/runtime-main.a2f394bd.js.map",
+    "static/js/2.d05075f0.chunk.js": "/randomperrito/static/js/2.d05075f0.chunk.js",
+    "static/js/2.d05075f0.chunk.js.map": "/randomperrito/static/js/2.d05075f0.chunk.js.map",
+    "index.html": "/randomperrito/index.html",
+    "precache-manifest.148daf3cf8d6d0849c27049879e7de06.js": "/randomperrito/precache-manifest.148daf3cf8d6d0849c27049879e7de06.js",
+    "service-worker.js": "/randomperrito/service-worker.js",
+    "static/css/main.d0061d4e.chunk.css.map": "/randomperrito/static/css/main.d0061d4e.chunk.css.map",
+    "static/media/index.css": "/randomperrito/static/media/logo.b31deb3e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a2f394bd.js",
+    "static/js/2.d05075f0.chunk.js",
+    "static/css/main.d0061d4e.chunk.css",
+    "static/js/main.c333b61b.chunk.js"
+  ]
+}
