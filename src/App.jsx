@@ -1,38 +1,16 @@
 import { createRoot } from "react-dom/client";
-import { useState, useEffect } from "react";
-import { useListaRazas } from "./hooks/useRaza";
+import { useState } from "react";
+import { useListaRazas, useImgRaza } from "./hooks/useRaza";
 import SelectorRaza from "./SelectorRaza";
 import Imagen from "./Imagen";
 import Comentarios from "./Comentarios";
 
 const App = () => {
   const [razaActual, setRazaActual] = useState("affenpinscher");
-  const [imgUrl, setImgUrl] = useState("");
   const [loading, setLoading] = useState("");
   const [error, setError] = useState();
   const { data: listaRazas } = useListaRazas({ setError });
-
-  async function getImgRaza(raza) {
-    try {
-      setLoading(true);
-      const res = await fetch(
-        `https://dog.ceo/api/breed/${raza}/images/random`
-      );
-      if (!res.ok) {
-        throw new Error(`Error recuperando imagen de raza ${raza}.`);
-      }
-      const data = await res.json();
-      console.log(data);
-      setImgUrl(data.message);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getImgRaza(razaActual);
-  }, [razaActual])
+  const { imgUrl, refreshImg } = useImgRaza(razaActual, setLoading, setError);
 
   return (
     <>
@@ -46,7 +24,7 @@ const App = () => {
         ) : (
           <Imagen
             url={imgUrl}
-            nuevaImagen={() => getImgRaza(razaActual)}
+            nuevaImagen={() => refreshImg(razaActual)}
             loading={loading}
             handleLoading={setLoading}
           />

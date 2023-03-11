@@ -29,6 +29,35 @@ function useListaRazas({ setError }) {
   return { data: listaRazas, loading };
 }
 
+function useImgRaza(raza, setLoading, setError) {
+  const [imgUrl, setImgUrl] = useState("");
+
+  async function getImgRaza(raza) {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `https://dog.ceo/api/breed/${raza}/images/random`
+      );
+      if (!res.ok) {
+        throw new Error(`Error recuperando imagen de raza ${raza}.`);
+      }
+      const data = await res.json();
+      console.log(data);
+      setImgUrl(data.message);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getImgRaza(raza);
+  }, [raza]);
+
+  return {imgUrl, refreshImg: getImgRaza}
+}
+
 export {
-  useListaRazas
+  useListaRazas,
+  useImgRaza
 }
