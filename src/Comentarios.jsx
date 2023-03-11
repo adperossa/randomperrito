@@ -3,7 +3,7 @@ import Respuesta from './Respuesta';
 
 const fakePostUrl = 'https://jsonplaceholder.typicode.com/comments';
 
-const Comentarios = ({ chequearEstado }) => {
+const Comentarios = () => {
   const [respuesta, setRespuesta] = useState('');
 
   const handleSubmit = (e) => {
@@ -22,7 +22,6 @@ const Comentarios = ({ chequearEstado }) => {
     }
 
     fetch(fakePostUrl, opcionesPost)
-      .then(chequearEstado)
       .then(res => res.json())
       .then(responseData => {
         const respuesta = JSON.stringify(responseData, null, 2)
